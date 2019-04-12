@@ -1,10 +1,19 @@
-import sys
-import dda
-import matplotlib.pyplot as plt
-from matplotlib import animation
-from PyQt5 import uic, QtWidgets
+'''
+2019/4/8
+数字积分插补法DDA
+实现功能:
+1、输入起点与终点，进行自动直线插补和圆弧插补，并显示计算过程和路径
+2、实现调速
+3、圆弧插补可选顺逆时针与插补半径
+'''
+import math
+import sys                       # 导入"system"模块，程序结尾有"sys.exit()"退出指令
+import dda                       # 数值微分算法 DDA Digital Differential Analyzer
+import matplotlib.pyplot as plt  # "matplotlib"2D绘图库 "pyplot"提供类似MATLAB的绘图框架
+from matplotlib import animation # "animation"画动态图
+from PyQt5 import uic, QtWidgets # "PyQt5"绘制界面
 
-qtCreatorFile = "gui.ui"  # Enter file here.
+qtCreatorFile = "gui.ui"         # Enter file here.
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
@@ -24,7 +33,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         ye = float(self.ye_input.toPlainText())
         x_coordinates, y_coordinates, output_string, m = dda.dda_line(x0, y0, xe, ye)
 
-        self.results_window.setText(output_string)
+        self.output.setText(output_string)
 
         # First set up the figure, the axis, and the plot element we want to animate
         fig = plt.figure()
@@ -82,9 +91,10 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         y0 = float(self.y0_input.toPlainText())
         xe = float(self.xe_input.toPlainText())
         ye = float(self.ye_input.toPlainText())
-        x_coordinates, y_coordinates, output_string, m = dda.dda_arc(x0, y0, xe, ye)
+        R_input = float(self.R_input.toPlainText())
+        x_coordinates, y_coordinates, output_string, m = dda.dda_arc(x0, y0, xe, ye,R_input)
 
-        self.results_window.setText(output_string)
+        self.output.setText(output_string)
 
         # First set up the figure, the axis, and the plot element we want to animate
         fig = plt.figure()
@@ -144,4 +154,3 @@ if __name__ == "__main__":
     window = MyApp()
     window.show()
     sys.exit(app.exec_())
-
