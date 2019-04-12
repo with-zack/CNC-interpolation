@@ -86,6 +86,8 @@ def dda_arc(x0, y0, x1, y1):
     count_y = dy
     x_pulses = []
     y_pulses = []
+    # 写的这么复杂，是为了实现x,y的同步
+    #TODO: 删掉x_pulses和y_pulses中都是0的部分
     while (count_x > 0 or count_y > 0):
         if count_x > 0 and count_y > 0:
             J_rx += J_vx

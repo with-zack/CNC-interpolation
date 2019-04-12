@@ -20,7 +20,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTextEdit" name="results_window">
+   <widget class="QTextEdit" name="output">
     <property name="geometry">
      <rect>
       <x>970</x>
@@ -30,7 +30,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="x0">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -61,7 +61,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="y0">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -92,7 +92,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="xe">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -113,7 +113,7 @@
      <string>Xe</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="ye">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -177,7 +177,51 @@
      </rect>
     </property>
     <property name="text">
-     <string>圆弧插补</string>
+     <string>顺圆弧插补</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="r_input">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>250</y>
+      <width>104</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="r">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>260</y>
+      <width>68</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>R</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="arc_interpolation_2">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>490</y>
+      <width>97</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>逆圆弧插补</string>
     </property>
    </widget>
   </widget>
