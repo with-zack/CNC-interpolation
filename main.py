@@ -31,6 +31,8 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         y0 = float(self.y0_input.toPlainText())
         xe = float(self.xe_input.toPlainText())
         ye = float(self.ye_input.toPlainText())
+        ani_speed = 100 - self.speed.value()
+        
         x_coordinates, y_coordinates, output_string, m = dda.dda_line(x0, y0, xe, ye)
 
         self.output.setText(output_string)
@@ -82,7 +84,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # call the animator.  blit=True means only re-draw the parts that have changed.
         anim = animation.FuncAnimation(fig, animate, init_func=init,
-                                       frames=m*20, interval=30, blit=True)
+                                       frames=m*20, interval=ani_speed, blit=True)
 
         plt.show()
 
@@ -92,6 +94,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         xe = float(self.xe_input.toPlainText())
         ye = float(self.ye_input.toPlainText())
         R_input = float(self.R_input.toPlainText())
+        ani_speed = 100 - self.speed.value()
         x_coordinates, y_coordinates, output_string, m = dda.dda_arc(x0, y0, xe, ye,R_input)
 
         self.output.setText(output_string)
@@ -143,7 +146,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # call the animator.  blit=True means only re-draw the parts that have changed.
         anim = animation.FuncAnimation(fig, animate, init_func=init,
-                                       frames=m*20, interval=30, blit=True)
+                                       frames=m*20, interval=ani_speed, blit=True)
         print(x_coordinates)
         print(y_coordinates)
         plt.show()
